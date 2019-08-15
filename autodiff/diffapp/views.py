@@ -112,5 +112,5 @@ def display(request):
 
             tables = getdiff(dcmp, which_app.lower())
 
-    return render(request, 'diffapp/display.html', {'table': tables})
+    return render(request, 'diffapp/display.html', {'tables': tables})
 
