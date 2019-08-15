@@ -1,4 +1,18 @@
+import os
 from fnmatch import fnmatch
+from .helpers import get_dir
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# """ creating new directory if it does not exists """
+# if not os.path.exists(magento_diff):
+#     os.makedirs(magento_diff)
+
+# if not os.path.exists(prestashop_diff):
+#     os.makedirs(prestashop_diff)
+
+""" retrieving sub directories """
+sub_directories = os.path.join(BASE_DIR, 'autodiff')
+directory_names = get_dir(sub_directories)
 
 # some configuration and constant variables
 

@@ -1,6 +1,7 @@
 from zipfile import ZipFile
 from io import BytesIO
 from urllib.request import urlopen
+import os
 
 # download applications to compare and save to local disk
 def download(version_list, whichapp):
@@ -25,3 +26,12 @@ def download(version_list, whichapp):
                 with ZipFile(BytesIO(zipresp.read())) as zfile:
                     zfile.extractall()
 
+
+# function to get the two dirs to compare
+def get_dir(a_dir):
+    """
+    a_adir: directory to be search in
+    returns list of subdirectories in a a directory
+     """
+    return [name for name in os.listdir(a_dir)
+            if os.path.isdir(os.path.join(a_dir, name))]
