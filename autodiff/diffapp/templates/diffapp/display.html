@@ -1,11 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
+{% load autodiff_extras %}
 {% block content %}
-    <div class="container">
-        {% for table in tables %}
-            <div class="card-body">
-                {{ table }}
-            </div>
-        {% endfor %}
-    </div>
+<h4 class="card-title" style="align:center">{{ which_app }} Diff between {{version_1}} and {{ version_2}}</h4>
+<div></div>
+<br/><br/>
+
+{% for file in files %}
+<div class="diff" style="width: 1514px;">
+<pre class=".prettyprint">
+{% for line in file %}{% if forloop.first %}<div class="collapsible">{{ line|replace:"/[^[a-zA-Z]*([-])*\d\.\d*\.\d\.\d*/"}}</div>{% endif %}{% if line|first in '-'%}<div class="diff_sub row diff_padding">{{" "}}{{ line }}</div>{% endif %}{% if line|first in '+'%}<div class="diff_add row diff_padding">{{" "}}{{ line }}</div>{% endif %}{% endfor %}
+</pre>
+</div>
+<br>
+{% endfor %}
 {% endblock content %}

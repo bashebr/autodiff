@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #     os.makedirs(prestashop_diff)
 
 """ retrieving sub directories """
-sub_directories = os.path.join(BASE_DIR, 'autodiff')
+sub_directories = os.path.join(BASE_DIR)
 directory_names = get_dir(sub_directories)
 
 # some configuration and constant variables
@@ -23,8 +23,8 @@ IGNORE_FILES_MAGENTO = \
      'css', '*.yml', '*.yaml', '*.sample', '*.lock',
      '*.gitignore', '*.gitattributes', '*.dist', '*.ini',
      '*.conf', 'magento2-functional-testing-framework', 'language-*',
-     'zendframework1', 'images', '*.jpeg', '*.gif', '*.png', 'inventory-composer-installer',
-     'framework-amqp', '.github']
+     '*zendframework1*', 'images', '*.jpeg', '*.gif', '*.png', 'inventory-composer-installer',
+     'framework-amqp', '.github','*Test*', '*lang*']
 
 IGNORE_FILES_PRESTASHOP = \
     ['.github', 'app', 'bin', 'cache', 'config', 'docs', 'download', 'img', 'install-dev', 'js'
@@ -32,7 +32,8 @@ IGNORE_FILES_PRESTASHOP = \
      'themes', '_core', '_libraries', '_dev', 'assets', 'plugins', 'tools', 'translations',
      'travis-scripts', 'upload', 'var', 'vendor', 'webservices', '.editorconfig', '.eslintignore',
      'eslintrc.js', '.gitignore', '.php_cs.dist', '*.yml', '*.json', '*.lock', '*.md', 'diff-hooks.php',
-     'error500.html', 'images.*', '*.txt', '*.png', '*.jpg', '*.jpeg', '*.gif', '*.ico']
+     'error500.html', 'images.*', '*.txt', '*.png', '*.jpg', '*.jpeg', '*.gif', '*.ico', 'autoload.php',
+    '*Test*', '*lang*']
 
 
 # function to enable filtering when ignoring the files or dirs

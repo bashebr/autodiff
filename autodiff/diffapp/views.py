@@ -1,5 +1,5 @@
 from django.shortcuts import render
-import filecmp
+import filecmp, difflib
 # import time
 
 from .helpers import download
@@ -15,8 +15,6 @@ filecmp._filter = _filter
 
 def get_version(request):
     # start = time.time()
-    version_1 = ''
-    version_2 = ''
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -31,12 +29,13 @@ def get_version(request):
 
     return render(request, 'diffapp/diffapp.html', {'form': form})
 
-
 def display(request):
+    output = []
     # process version entered by user
     version_1 = request.POST['version_1']
     version_2 = request.POST['version_2']
     which_app = request.POST['which_app']
+
 
     # compare dirs
     version_list = [version_1, version_2]
@@ -59,7 +58,7 @@ def display(request):
 
             print("Please give me a second until i write the diff in an html file ......\n")
 
-            tables = getdiff(dcmp, which_app.lower())
+            output = getdiff(dcmp, which_app.lower())
         else:
             """function download is called """
             download(version_list, which_app.lower())
@@ -71,7 +70,7 @@ def display(request):
 
             print("Please give me a second until i write the diff in an html file ......\n")
 
-            tables = getdiff(dcmp, which_app.lower())
+            output = getdiff(dcmp, which_app.lower())
             # end = time.time()
 
             # print("Diff processing is complete with in %s seconds" % (end - start))
@@ -94,11 +93,7 @@ def display(request):
 
             print("Please give me a second until i write the diff in an html file........ \n")
 
-            tables = getdiff(dcmp, which_app.lower())
-    
-            # end = time.time()
-
-            # print("Diff processing is complete with in %s seconds" % (end - start))
+            output = getdiff(dcmp, which_app.lower())
             
         else:
             """function download is called """
@@ -108,9 +103,10 @@ def display(request):
 
             dcmp = filecmp.dircmp(directory_1, directory_2,
                                     ignore=IGNORE_FILES_PRESTASHOP)
+            
             print("Please give me a second until i write the diff in an html file ...... \n")
+            
+            output = getdiff(dcmp, which_app.lower())
 
-            tables = getdiff(dcmp, which_app.lower())
-
-    return render(request, 'diffapp/display.html', {'tables': tables})
+    return render(request, 'diffapp/display.html', {'files': output, 'which_app': which_app, 'version_1': version_1, 'version_2': version_2})
 

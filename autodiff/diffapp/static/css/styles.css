@@ -1,4 +1,4 @@
-table.diff {
+.diff {
     font-family:Courier;
      border:medium;
 }
@@ -12,11 +12,56 @@ td.diff_header {
     background-color:#c0c0c0
 }
 .diff_add {
-    background-color:#aaffaa
+    background-color:rgba(70, 148, 8, 0.15)
 }
 .diff_chg {
     background-color:#ffff77
 }
 .diff_sub {
-    background-color:#ffaaaa
+    background-color:rgba(217, 131, 31, 0.15)
 }
+.card_align {
+    position: center;
+    background: #e0e0e0;
+}
+.text_align {
+    align-content: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+pre {
+    display: block;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin: 0 0 9px;
+    padding: 8.5px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    word-break: break-all;
+    word-wrap: break-word;
+    columns: #444444;
+    background-color: #f5f5f5;
+
+}
+.diff_padding {
+    padding-left: 0.5em;
+}
+.prettyprint {
+    white-space: pre-wrap;
+    min-width: 200px;
+}
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .active, .collapsible:hover {
+    background-color: #555;
+  }
