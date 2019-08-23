@@ -7,29 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
+    
     <title>Diff app</title>
   </head>
-  <body>
-    <div class="container">
-        <div class="row" style="width:50">
-        <!-- form block -->
-          {% block form %}
-          {% endblock form %}
+  <body class="template-index template-index-min">
+        <div class="container">
+          <h1 class="mt-4">Diff App</h1>
+          {% comment %} <p>This is a simple app designed to minimize the time during filtering an application such as Magento by excluding unnecessary files, and directories</p> {% endcomment %}
+        </div>
+        <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <!-- form block -->
+            {% block form %}
+            {% endblock form %}
+          </div>
+          <div class="col-md-6 offset-11">
+          {% block filter %}
+          {% endblock %}
+          </div>
         </div>
         <div class="row" style="width:80">
           <!-- content block -->
         {% block content %}
         {% endblock content %}
         </div>
-    </div>
+      </div>
     
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{% static 'js/jquery.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="{% static 'js/jquery.js' %}"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="{% static 'js/bootstrap/bootstrap.min.js' %}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+      <script src="{% static 'js/custom.js' %}"></script>
   </body>
 </html>

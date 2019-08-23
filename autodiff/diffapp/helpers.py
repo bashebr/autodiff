@@ -25,12 +25,18 @@ def download(version_list, whichapp):
             with urlopen(zipurl) as zipresp:
                 with ZipFile(BytesIO(zipresp.read())) as zfile:
                     zfile.extractall()
+    elif whichapp == "wordpress":
+        for version in version_list:
+            zipurl = 'https://wordpress.org/wordpress-' + version + '.zip'
+            with urlopen(zipurl) as zipresp:
+                with ZipFile(BytesIO(zipresp.read())) as zfile:
+                    zfile.extractall('wordpress-'+version)
 
 
 # function to get the two dirs to compare
 def get_dir(a_dir):
     """
-    a_adir: directory to be search in
+    a_dir: directory to be search in
     returns list of subdirectories in a a directory
      """
     return [name for name in os.listdir(a_dir)

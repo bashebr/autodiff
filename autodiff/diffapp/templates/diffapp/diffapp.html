@@ -5,6 +5,9 @@
     <form action="{% url 'diff:display' %}" method="post">
         {% csrf_token %}
         {{ form|crispy }}
-        <input type="submit" value="Submit" class="btn btn-primary">
+        <input id="url-btn" type="submit" value="Submit" class="btn btn-primary">
     </form>
 {% endblock form %}
+{% block filter %}
+    <button class="btn btn-secondary">Click to check infected files</button>
+{% endblock %}
