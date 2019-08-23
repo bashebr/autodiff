@@ -1,3 +1,6 @@
+body {
+    background-color: #ebebe2fa;
+}
 .diff {
     font-family:Courier;
      border:medium;
@@ -12,13 +15,21 @@ td.diff_header {
     background-color:#c0c0c0
 }
 .diff_add {
-    background-color:rgba(70, 148, 8, 0.15)
+    background-color:rgba(70, 148, 8, 0.15);
+}
+.diff_add:hover {
+    background-color: rgba(99, 217, 31, 0.15);
+    cursor: pointer;
 }
 .diff_chg {
     background-color:#ffff77
 }
 .diff_sub {
-    background-color:rgba(217, 131, 31, 0.15)
+    background-color:rgba(217, 131, 31, 0.15);
+}
+.diff_sub:hover {
+    background-color:rgba(230, 100, 25, 0.15);
+    cursor: pointer;
 }
 .card_align {
     position: center;

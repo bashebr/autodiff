@@ -9,7 +9,7 @@
 {% for file in files %}
 <div class="diff" style="width: 1514px;">
 <pre class=".prettyprint">
-{% for line in file %}{% if forloop.first %}<div class="collapsible">{{ line|replace:"/[^[a-zA-Z]*([-])*\d\.\d*\.\d\.\d*/"}}</div>{% endif %}{% if line|first in '-'%}<div class="diff_sub row diff_padding">{{" "}}{{ line }}</div>{% endif %}{% if line|first in '+'%}<div class="diff_add row diff_padding">{{" "}}{{ line }}</div>{% endif %}{% endfor %}
+{% for line in file %}{% if forloop.first %}<div class="collapsible">{{ line|replace:"/\w+\d?-\d?.\d?.\d/"}}</div>{% endif %}{% if line|first in '-'%}<div class="row diff_padding">{{" "}}<span class="diff_sub">{{ line }}</span></div>{% endif %}{% if line|first in '+'%}<div class="row diff_padding">{{" "}}<span class="diff_add">{{ line }}</span></div>{% endif %}{% endfor %}
 </pre>
 </div>
 <br>

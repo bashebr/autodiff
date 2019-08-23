@@ -1,14 +1,14 @@
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
-  });
+function changeColorAdd(el, clr) {
+    if (el.sytl.backgroundColor == "#ff5e00") {
+        document.getElementById('add').style.backgroundColor = "";
+    }else {
+        document.getElementById('add').style.backgroundColor = "#ff5e00";
+    }
+}
+function changeColorSub() {
+    if (el.sytl.backgroundColor == "#ff5e00") {
+        document.getElementById('sub').style.backgroundColor = "";
+    }else {
+        document.getElementById('sub').style.backgroundColor = "#21a011";
+    }
 }
